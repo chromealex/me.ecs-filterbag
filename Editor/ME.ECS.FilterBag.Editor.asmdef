@@ -1,0 +1,20 @@
+{
+    "name": "ME.ECS.FilterBag.Editor",
+    "rootNamespace": "",
+    "references": [
+        "ME.ECS.FilterBag",
+        "ME.ECS",
+        "ME.ECS.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

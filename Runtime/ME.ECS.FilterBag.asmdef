@@ -1,0 +1,19 @@
+{
+    "name": "ME.ECS.FilterBag",
+    "rootNamespace": "",
+    "references": [
+        "ME.ECS",
+        "ME.ECS.IL2CPP",
+        "Unity.Collections",
+        "Unity.Burst"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

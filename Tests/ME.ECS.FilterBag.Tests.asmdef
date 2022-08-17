@@ -1,0 +1,23 @@
+{
+    "name": "ME.ECS.FilterBag.Tests",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Collections",
+        "ME.ECS.FilterBag",
+        "ME.ECS.FilterBag.Editor",
+        "Unity.Burst",
+        "ME.ECS",
+        "ME.ECS.Tests"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
