@@ -10,7 +10,21 @@ namespace ME.ECSEditor {
         public static void GenerateFilterBag() {
 
             const int count = 10;
-            
+
+            var editorPath = string.Empty;
+            {
+                var asmsEditor = UnityEditor.AssetDatabase.FindAssets("t:asmdef ME.ECS.FilterBag.Editor");
+                foreach (var asm in asmsEditor) {
+                    
+                    var asset = UnityEditor.AssetDatabase.GUIDToAssetPath(asm);
+                    var dir = $"{System.IO.Path.GetDirectoryName(asset)}/Templates";
+                    if (System.IO.Directory.Exists(dir) == false) continue;
+                    editorPath = System.IO.Path.GetDirectoryName(asset);
+                    break;
+
+                }
+            }
+
             var asms = UnityEditor.AssetDatabase.FindAssets("t:asmdef ME.ECS.FilterBag");
             foreach (var asm in asms) {
 
@@ -39,9 +53,9 @@ namespace ME.ECSEditor {
                     }
 
                     {
-                        var resForEachSource = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsForEachItem.txt", isRequired: true).text;
+                        var resForEachSource = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsForEachItem.txt", isRequired: true).text;
                         
-                        var resSource = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsDelegateItem.txt", isRequired: true).text;
+                        var resSource = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsDelegateItem.txt", isRequired: true).text;
                         var formsWrite = string.Empty;
                         for (int i = 0; i < j; ++i) {
                             
@@ -104,7 +118,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var res = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsForEachItem.txt", isRequired: true).text;
+                        var res = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsForEachItem.txt", isRequired: true).text;
                         res = res.Replace("#ITEMS_TYPE#", itemsType);
                         res = res.Replace("#ITEMS_WHERE#", itemsWhere);
                         res = res.Replace("#ITEMS_GET#", itemsGet);
@@ -115,7 +129,7 @@ namespace ME.ECSEditor {
                     
                     {
                     
-                        var itemMethods = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferMethods.txt", isRequired: true).text;
+                        var itemMethods = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferMethods.txt", isRequired: true).text;
                         var itemsMethods = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -125,7 +139,7 @@ namespace ME.ECSEditor {
 
                         }
                         
-                        var dataBufferContains = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferDataBufferContains.txt", isRequired: true).text;
+                        var dataBufferContains = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferDataBufferContains.txt", isRequired: true).text;
                         var dataBufferContainsOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -135,7 +149,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var dataBufferOps = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferDataBufferOps.txt", isRequired: true).text;
+                        var dataBufferOps = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferDataBufferOps.txt", isRequired: true).text;
                         var dataBufferOpsOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -145,7 +159,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var dataBufferData = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferDataBufferData.txt", isRequired: true).text;
+                        var dataBufferData = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferDataBufferData.txt", isRequired: true).text;
                         var dataBufferDataOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -155,7 +169,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsInit = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsInit.txt", isRequired: true).text;
+                        var regsInit = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsInit.txt", isRequired: true).text;
                         var regsInitOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -165,7 +179,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsInitPost = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsInitPost.txt", isRequired: true).text;
+                        var regsInitPost = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsInitPost.txt", isRequired: true).text;
                         var regsInitPostOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -175,7 +189,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsInitFill = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsInitFill.txt", isRequired: true).text;
+                        var regsInitFill = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsInitFill.txt", isRequired: true).text;
                         var regsInitFillOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -185,7 +199,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var pushRegsInit = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferPushRegsInit.txt", isRequired: true).text;
+                        var pushRegsInit = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferPushRegsInit.txt", isRequired: true).text;
                         var pushRegsInitOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -195,7 +209,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var pushOps = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferPushOps.txt", isRequired: true).text;
+                        var pushOps = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferPushOps.txt", isRequired: true).text;
                         var pushOpsOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -205,7 +219,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsValidate = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsValidate.txt", isRequired: true).text;
+                        var regsValidate = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsValidate.txt", isRequired: true).text;
                         var regsValidateOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -215,7 +229,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsDispose = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsDispose.txt", isRequired: true).text;
+                        var regsDispose = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsDispose.txt", isRequired: true).text;
                         var regsDisposeOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -225,7 +239,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var regsJobFill = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferRegsJobFill.txt", isRequired: true).text;
+                        var regsJobFill = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferRegsJobFill.txt", isRequired: true).text;
                         var regsJobFillOutput = string.Empty;
                         for (int i = 0; i < j; ++i) {
 
@@ -235,7 +249,7 @@ namespace ME.ECSEditor {
 
                         }
 
-                        var res = EditorUtilities.Load<UnityEngine.TextAsset>("Editor/Templates/EditorResources/00-FilterExtensionsBufferItem.txt", isRequired: true).text;
+                        var res = EditorUtilities.Load<UnityEngine.TextAsset>(editorPath, "Templates/EditorResources/00-FilterExtensionsBufferItem.txt", isRequired: true).text;
                         res = res.Replace("#ITEMS_TYPE#", itemsType);
                         res = res.Replace("#ITEMS_WHERE#", itemsWhere);
                         res = res.Replace("#ITEMS_METHODS#", itemsMethods);
@@ -257,8 +271,8 @@ namespace ME.ECSEditor {
 
                 }
                 
-                if (string.IsNullOrEmpty(outputDelegates) == false) ME.ECSEditor.ScriptTemplates.Create(path: dir, fileName: "Filters.Delegates.gen.cs", "00-FilterExtensionsDelegates", new Dictionary<string, string>() { { "CONTENT", outputDelegates } }, allowRename: false);
-                if (string.IsNullOrEmpty(outputForEach) == false) ME.ECSEditor.ScriptTemplates.Create(path: dir, fileName: "Filters.ForEach.gen.cs", "00-FilterExtensionsForEach", new Dictionary<string, string>() { { "CONTENT", outputForEach }, { "CONTENT_BUFFERS", buffers } }, allowRename: false);
+                if (string.IsNullOrEmpty(outputDelegates) == false) ME.ECSEditor.ScriptTemplates.Create(path: dir, fileName: "Filters.Delegates.gen.cs", "00-FilterExtensionsDelegates", new Dictionary<string, string>() { { "CONTENT", outputDelegates } }, allowRename: false, customRoot: editorPath);
+                if (string.IsNullOrEmpty(outputForEach) == false) ME.ECSEditor.ScriptTemplates.Create(path: dir, fileName: "Filters.ForEach.gen.cs", "00-FilterExtensionsForEach", new Dictionary<string, string>() { { "CONTENT", outputForEach }, { "CONTENT_BUFFERS", buffers } }, allowRename: false, customRoot: editorPath);
                 
                 UnityEngine.Debug.Log($"Files regenerated at path {dir}");
                 
