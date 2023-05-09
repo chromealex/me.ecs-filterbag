@@ -7,7 +7,7 @@ namespace ME.ECS {
     using Filters;
     using Buffers;
     using ME.ECS.Collections;
-    using ME.ECS.Collections.V3;
+    using ME.ECS.Collections.LowLevel.Unsafe;
     
     using Unity.Burst;
     using Unity.Jobs;
@@ -22,7 +22,7 @@ namespace ME.ECS {
 
     public unsafe struct Ptr {
 
-        public Collections.MemoryAllocator.SparseSetData value;
+        public Collections.LowLevel.SparseSetData value;
 
     }
 
@@ -95,10 +95,10 @@ public unsafe struct FilterBag<T0> : IFilterBag  where T0:unmanaged,IComponentBa
     [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T0>* regs0;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops0;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -244,10 +244,10 @@ public unsafe struct FilterBag<T0,T1> : IFilterBag  where T0:unmanaged,IComponen
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T1>* regs1;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops1;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -447,10 +447,10 @@ public unsafe struct FilterBag<T0,T1,T2> : IFilterBag  where T0:unmanaged,ICompo
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T2>* regs2;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops2;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -704,10 +704,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3> : IFilterBag  where T0:unmanaged,ICo
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T3>* regs3;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops3;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -1015,10 +1015,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3,T4> : IFilterBag  where T0:unmanaged,
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T4>* regs4;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops4;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -1380,10 +1380,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3,T4,T5> : IFilterBag  where T0:unmanag
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T5>* regs5;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops5;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -1799,10 +1799,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3,T4,T5,T6> : IFilterBag  where T0:unma
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T6>* regs6;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops6;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -2272,10 +2272,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3,T4,T5,T6,T7> : IFilterBag  where T0:u
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T7>* regs7;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops7;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
@@ -2799,10 +2799,10 @@ public unsafe struct FilterBag<T0,T1,T2,T3,T4,T5,T6,T7,T8> : IFilterBag  where T
 [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private UnmanagedComponentsStorage.Item<T8>* regs8;
 [Unity.Collections.NativeDisableParallelForRestriction] private Ops ops8;
 
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;

@@ -7,7 +7,7 @@ namespace ME.ECS {
     using Filters;
     using Buffers;
     using ME.ECS.Collections;
-    using ME.ECS.Collections.V3;
+    using ME.ECS.Collections.LowLevel.Unsafe;
     
     using Unity.Burst;
     using Unity.Jobs;
@@ -22,7 +22,7 @@ namespace ME.ECS {
 
     public unsafe struct Ptr {
 
-        public Collections.MemoryAllocator.SparseSetData value;
+        public Collections.LowLevel.SparseSetData value;
 
     }
 

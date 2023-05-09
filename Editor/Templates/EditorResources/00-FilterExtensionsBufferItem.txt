@@ -6,10 +6,10 @@
 public unsafe struct FilterBag<#ITEMS_TYPE#> : IFilterBag #ITEMS_WHERE# {
     public readonly int Length;
     #REGS_INIT_FILL#
-    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.V3.MemArrayAllocator<Entity> entities;
+    [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private ME.ECS.Collections.LowLevel.MemArrayAllocator<Entity> entities;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeList<int> indexes;
     [Unity.Collections.NativeDisableParallelForRestriction][Unity.Collections.ReadOnlyAttribute] private Unity.Collections.NativeArray<int> entityToIndex;
-    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.V3.MemoryAllocator* allocator;
+    [NativeDisableUnsafePtrRestriction][Unity.Collections.NativeDisableParallelForRestriction] private ME.ECS.Collections.LowLevel.Unsafe.MemoryAllocator* allocator;
     [Unity.Collections.NativeDisableParallelForRestriction] private Ops entityOps;
     public int Count => this.Length;
     public Tick tick;
