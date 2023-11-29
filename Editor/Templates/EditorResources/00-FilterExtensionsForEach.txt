@@ -42,8 +42,8 @@ namespace ME.ECS {
         
         public Ops(int length) {
             
-            this.items = new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.Temp);
-            this.exist = new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.Temp);
+            this.items = new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob);
+            this.exist = new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob);
             
         }
 
