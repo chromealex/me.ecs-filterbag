@@ -34,18 +34,20 @@ namespace ME.ECS {
 
     }
     
-    public struct Ops {
-
+    public unsafe struct Ops {
+    
         public int Length => this.items.Length;
         [Unity.Collections.NativeDisableParallelForRestriction]
-        private Unity.Collections.NativeArray<Op> items;
+        [NativeDisableUnsafePtrRestriction]
+        private Op* items;
         [Unity.Collections.NativeDisableParallelForRestriction]
-        private Unity.Collections.NativeArray<bool> exist;
+        [NativeDisableUnsafePtrRestriction]
+        private bool* exist;
         
         public Ops(int length) {
             
-            this.items = new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob);
-            this.exist = new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob);
+            this.items = new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
+            this.exist = new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
             
         }
 
@@ -78,8 +80,8 @@ namespace ME.ECS {
 
         public void Dispose() {
 
-            this.items.Dispose();
-            this.exist.Dispose();
+            UnsafeUtility.Free(this.items, Unity.Collections.Allocator.TempJob);
+            UnsafeUtility.Free(this.exist, Unity.Collections.Allocator.TempJob);
 
         }
 
