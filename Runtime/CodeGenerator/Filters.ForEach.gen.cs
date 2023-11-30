@@ -37,7 +37,9 @@ namespace ME.ECS {
     public struct Ops {
 
         public int Length => this.items.Length;
+        [Unity.Collections.NativeDisableParallelForRestriction]
         private Unity.Collections.NativeArray<Op> items;
+        [Unity.Collections.NativeDisableParallelForRestriction]
         private Unity.Collections.NativeArray<bool> exist;
         
         public Ops(int length) {
