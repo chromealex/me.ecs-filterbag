@@ -48,7 +48,9 @@ namespace ME.ECS {
 
             this.Length = length;
             this.items = (Op*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<Op>.align, Unity.Collections.Allocator.TempJob);
+            Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.items, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size);
             this.exist = (bool*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<bool>.align, Unity.Collections.Allocator.TempJob);
+            Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.exist, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size);
             
         }
 
