@@ -47,8 +47,8 @@ namespace ME.ECS {
         public Ops(int length) {
 
             this.Length = length;
-            this.items = (Op*)new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
-            this.exist = (bool*)new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
+            this.items = (Op*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<Op>.align, Unity.Collections.Allocator.TempJob);
+            this.exist = (bool*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<bool>.align, Unity.Collections.Allocator.TempJob);
             
         }
 
