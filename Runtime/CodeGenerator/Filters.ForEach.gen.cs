@@ -36,7 +36,7 @@ namespace ME.ECS {
     
     public unsafe struct Ops {
 
-        public int Length => this.items.Length;
+        public int Length;
         [Unity.Collections.NativeDisableParallelForRestriction]
         [NativeDisableUnsafePtrRestriction]
         private Op* items;
@@ -45,9 +45,10 @@ namespace ME.ECS {
         private bool* exist;
         
         public Ops(int length) {
-            
-            this.items = new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
-            this.exist = new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
+
+            this.Length = length;
+            this.items = (Op*)new Unity.Collections.NativeArray<Op>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
+            this.exist = (bool*)new Unity.Collections.NativeArray<bool>(length, Unity.Collections.Allocator.TempJob).GetUnsafePtr();
             
         }
 
