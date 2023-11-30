@@ -46,12 +46,15 @@ namespace ME.ECS {
         
         public Ops(int length) {
 
+            this = default;
             this.Length = length;
-            this.items = (Op*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<Op>.align, Unity.Collections.Allocator.TempJob);
-            Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.items, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size);
-            this.exist = (bool*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<bool>.align, Unity.Collections.Allocator.TempJob);
-            Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.exist, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size);
-            
+            if (length > 0) {
+                this.items = (Op*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<Op>.align, Unity.Collections.Allocator.TempJob);
+                Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.items, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<Op>.size);
+                this.exist = (bool*)Unity.Collections.LowLevel.Unsafe.UnsafeUtility.Malloc(length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size, ME.ECS.Collections.LowLevel.Unsafe.TAlign<bool>.align, Unity.Collections.Allocator.TempJob);
+                Unity.Collections.LowLevel.Unsafe.UnsafeUtility.MemClear(this.exist, length * ME.ECS.Collections.LowLevel.Unsafe.TSize<bool>.size);
+            }
+
         }
 
         public void Write(Op op) {
@@ -83,8 +86,10 @@ namespace ME.ECS {
 
         public void Dispose() {
 
-            UnsafeUtility.Free(this.items, Unity.Collections.Allocator.TempJob);
-            UnsafeUtility.Free(this.exist, Unity.Collections.Allocator.TempJob);
+            if (this.Length > 0) {
+                UnsafeUtility.Free(this.items, Unity.Collections.Allocator.TempJob);
+                UnsafeUtility.Free(this.exist, Unity.Collections.Allocator.TempJob);
+            }
 
         }
 
