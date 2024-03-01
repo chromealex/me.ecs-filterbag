@@ -72,6 +72,7 @@ public unsafe struct FilterBag<#ITEMS_TYPE#> : IFilterBag #ITEMS_WHERE# {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];

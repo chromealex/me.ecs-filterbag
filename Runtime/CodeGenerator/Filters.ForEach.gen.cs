@@ -193,6 +193,7 @@ this.ops0 = new Ops(this.Length);
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -362,6 +363,7 @@ for (int i = 0; i < this.ops1.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -585,6 +587,7 @@ for (int i = 0; i < this.ops2.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -862,6 +865,7 @@ for (int i = 0; i < this.ops3.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -1193,6 +1197,7 @@ for (int i = 0; i < this.ops4.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -1578,6 +1583,7 @@ for (int i = 0; i < this.ops5.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -2017,6 +2023,7 @@ for (int i = 0; i < this.ops6.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -2510,6 +2517,7 @@ for (int i = 0; i < this.ops7.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -3057,6 +3065,7 @@ for (int i = 0; i < this.ops8.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -3658,6 +3667,7 @@ for (int i = 0; i < this.ops9.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -4313,6 +4323,7 @@ for (int i = 0; i < this.ops10.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -5022,6 +5033,7 @@ for (int i = 0; i < this.ops11.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -5785,6 +5797,7 @@ for (int i = 0; i < this.ops12.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -6602,6 +6615,7 @@ for (int i = 0; i < this.ops13.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -7473,6 +7487,7 @@ for (int i = 0; i < this.ops14.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -8398,6 +8413,7 @@ for (int i = 0; i < this.ops15.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -9377,6 +9393,7 @@ for (int i = 0; i < this.ops16.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -10410,6 +10427,7 @@ for (int i = 0; i < this.ops17.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
@@ -11497,6 +11515,7 @@ for (int i = 0; i < this.ops18.Length; ++i) {
         #endif
     }
     
+    public bool IsValidEntityId(int id) => id >= 0 && id < this.entityToIndex.Length;
     public int GetIndexByEntityId(int id) => this.entityToIndex[id];
     public void DestroyEntity(int index) => this.entityOps.Write(new Op() { entityIndex = index, componentId = -1, code = 2, });
     public int GetEntityId(int index) => this.indexes[index];
