@@ -9,7 +9,7 @@ namespace ME.ECSEditor {
         [UnityEditor.MenuItem("ME.ECS/Generators/Generate FilterBag...")]
         public static void GenerateFilterBag() {
 
-            const int count = 10;
+            const int count = 20;
 
             var editorPath = string.Empty;
             {
